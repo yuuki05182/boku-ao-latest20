@@ -51,8 +51,12 @@ html = """
     <style>
         body { font-family: sans-serif; padding: 2em; background: #f9f9f9; }
         h1 { text-align: center; }
-        table { border-collapse: collapse; width: 100%; background: white; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        table {
+    border-collapse: collapse;
+    background: white;
+    min-width: 600px; /* ← 推奨：表の最小幅を指定 */
+}
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
         th { background-color: #f0f0f0; }
         tr:nth-child(even) { background-color: #f9f9f9; }
     </style>
