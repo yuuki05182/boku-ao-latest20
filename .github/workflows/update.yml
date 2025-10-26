@@ -5,7 +5,7 @@ on:
     - cron: '0 5 * * *'  # 毎日JST 14:00（UTC 5:00）に実行
   workflow_dispatch:     # 手動実行も可能
 
-  permissions:
+permissions:
   contents: write  # ← これが重要！
 
 jobs:
