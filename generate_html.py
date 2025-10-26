@@ -1,7 +1,9 @@
 import pandas as pd
+import pytz
 from datetime import timedelta, datetime
 
-update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+jst = pytz.timezone("Asia/Tokyo")
+update_time = datetime.now(jst).strftime('%Y年%m月%d日 %H:%M:%S')
 
 # CSV読み込み
 df = pd.read_csv("boku_ao_latest.csv", encoding="utf-8-sig")
@@ -40,8 +42,8 @@ display_df = merged[[
 ]]
 
 # 日付を文字列に変換
-latest_str = latest_date.strftime('%Y-%m-%d')
-prev_str = prev_date.strftime('%Y-%m-%d')
+latest_str = latest_date.strftime('%Y年%m月%d日')
+prev_str = prev_date.strftime('%Y年%m月%d日')
 
 # HTML生成
 html = """
