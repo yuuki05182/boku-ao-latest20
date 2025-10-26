@@ -54,9 +54,10 @@ html = """
         table {
     border-collapse: collapse;
     background: white;
-    min-width: auto; /* ← 推奨：表の最小幅を指定 */
+    width: max-content;     /* ← 内容に合わせて横幅を決定 */
+    min-width: 700px;       /* ← 最小幅を保証（任意） */
 }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; font-size: 14px; white-space: nowrap;}
         th { background-color: #f0f0f0; }
         tr:nth-child(even) { background-color: #f9f9f9; }
     </style>
@@ -65,7 +66,7 @@ html = """
     <h1>僕が見たかった青空 - 前日差一覧</h1>
     <p style="text-align:center;">最新日: """ + latest_str + " ／ 前日: " + prev_str + """</p>
 
-    <div style="overflow-x:auto;">    
+    <div style="overflow-x:auto; max-width:100vw;">   
     <table>
         <thead>
             <tr>
