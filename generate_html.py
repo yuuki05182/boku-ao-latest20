@@ -51,10 +51,15 @@ html = """
     <style>
         body { font-family: sans-serif; padding: 2em; background: #f9f9f9; }
         h1 { text-align: center; }
+        .table-scroll {
+    overflow-x: auto;
+    max-width: 100vw;
+    }
         table {
     border-collapse: collapse;
     background: white;
-    width: max-content;     /* ← 内容に合わせて横幅を決定 */
+    display: block;         /* ← これが重要：横スクロールを強制 */
+    width: fit-content;     /* ← 内容に合わせて横幅を決定 */
     min-width: 700px;       /* ← 最小幅を保証（任意） */
 }
     th, td { border: 1px solid #ccc; padding: 8px; text-align: center; font-size: 14px; white-space: nowrap;}
