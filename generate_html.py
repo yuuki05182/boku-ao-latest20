@@ -1,5 +1,7 @@
 import pandas as pd
-from datetime import timedelta
+from datetime import timedelta, datetime
+
+update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 # CSV読み込み
 df = pd.read_csv("boku_ao_latest.csv", encoding="utf-8-sig")
@@ -69,6 +71,7 @@ html = """
 </head>
 <body>
     <h1>僕が見たかった青空 - 前日差一覧</h1>
+    <p style="text-align:center; font-size:0.9em; color:#666;">更新時間: """ + update_time + """</p>
     <p style="text-align:center;">最新日: """ + latest_str + " ／ 前日: " + prev_str + """</p>
 
     <div style="overflow-x:auto; max-width:100vw;">   
