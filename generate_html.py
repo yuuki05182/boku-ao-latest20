@@ -54,6 +54,7 @@ html = """
 <head>
     <meta charset="UTF-8">
     <title>僕青 前日差一覧</title>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <style>
         body { font-family: sans-serif; padding: 2em; background: #f9f9f9; }
         h1 { text-align: center; }
