@@ -84,7 +84,18 @@ html = """
 """ + "".join([f"<th>{col}</th>" for col in display_df.columns]) + "</tr></thead><tbody>\n"
 
 for i, row in enumerate(display_df.itertuples(index=False), start=1):
-    html += f"<tr><td>{i}</td>" + "".join([f"<td>{getattr(row, col)}</td>" for col in display_df.columns]) + "</tr>\n"
+    html += f"<tr><td>{i}</td>"
+    for col in display_df.columns:
+        val = getattr(row, col)
+        # 数値ならカンマ付きに整形（ただし "—" はそのまま）
+        if isinstance(val, (int, float)):
+            cell = f"{val:,}"
+        elif isinstance(val, str) and val.isdigit():
+            cell = f"{int(val):,}"
+        else:
+            cell = val
+        html += f"<td>{cell}</td>"
+    html += "</tr>\n"
 
 html += """
         </tbody>
