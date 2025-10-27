@@ -41,6 +41,8 @@ display_df = merged[[
     "コメント数", "コメント数差分",
 ]]
 
+display_df = display_df.sort_values("投稿日", ascending=False)
+
 # 日付を文字列に変換
 latest_str = latest_date.strftime('%Y年%m月%d日')
 prev_str = prev_date.strftime('%Y年%m月%d日')
