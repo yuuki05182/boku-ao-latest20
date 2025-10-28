@@ -30,7 +30,7 @@ merged = pd.merge(
 for col in ["再生数", "高評価", "コメント数"]:
     diff_col = f"{col}差分"
     merged[diff_col] = merged.apply(
-        lambda row: "—" if pd.isna(row[f"{col}_前日"]) else row[col] - row[f"{col}_前日"],
+        lambda row: "—" if pd.isna(row[f"{col}_前日"]) else str(int(row[col] - row[f"{col}_前日"])),
         axis=1
     )
 
